@@ -1,0 +1,275 @@
+/* Import */
+@import url('https://fonts.googleapis.com/css2?family=Anton&family=Rubik:ital,wght@0,600;1,300;1,400&display=swap');
+/* Aca importamos por ejemplo las fuentes que usaremos en el proyecto */
+
+/* Variables */
+
+:root{
+    --principal: white; 
+    --secondary: rgba(0, 0, 0, 0.521);
+    --third: black;
+    --font-primary: 'Anton', sans-serif;
+    --font-secondary: 'Rubik', sans-serif;
+    --text-lg: 2em;
+    --text-md: 1.8em;
+
+}
+
+/* Reset */
+*,
+*::before,
+*::after{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Globales */
+
+html{
+    font-size: 62.5%;
+    font-family: var(--font-primary);
+    color: var(--secondary);
+}
+body{
+    display: grid;
+    grid-template-rows: auto 1fr auto;
+    min-height: 100vh;
+
+}
+
+ul{
+    list-style-type: none;
+}
+
+a{
+    text-decoration: none;
+    color: inherit;
+    display: inline-block;
+}
+
+/* Helpers (ayudas) */
+
+.flex-row{
+    display: flex;
+}
+.flex-column{
+    display: flex;
+    flex-direction: column;
+}
+.container{
+    max-width: 1080px;
+    margin: 0 auto;
+}
+
+/* Header */
+
+header {
+    background-color: var(--principal);
+}
+
+header .navegacion {
+    min-height: 10vh;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 2rem;
+    flex-wrap: wrap;
+}
+header .logo{
+    flex-basis: 30%;
+}
+
+header .menu {
+    flex-basis: 50%;
+    justify-content: space-between;
+    padding: 1rem;
+}
+
+header .menu__lista {
+    border: 2px solid var(--principal);
+    border-radius: 6px;
+    transition: .5s ease-in-out;
+}
+.menu .menu__lista:hover{
+    border: 2px solid var(--secondary);
+}
+.menu .menu__lista:hover .submenu{
+    display: block;
+}
+.menu .menu__lista .menu__link{
+    font-size: var(--text-md);
+    padding: 1rem;
+}
+header .submenu{
+    display: none;
+    position: absolute;
+}
+.submenu .submenu__lista .submenu__link{
+    padding: 1rem;
+    font-size: 1.6em;
+}
+.submenu .submenu__lista .submenu__link:hover{
+    background-color: var(--secondary);
+    border-radius: 6px;
+    color: var(--principal);
+    transition: .5s ease-in-out;
+} 
+
+/* footer */
+
+footer{
+    background-color: var(--principal);
+}
+footer .pie{
+    display: grid;
+    grid-template-areas: "div div div";
+    max-width: 1080px;
+    margin: 0 auto;
+}
+footer .pie1{
+    flex-basis: 40%;
+    text-align: center;
+    padding: 0 2rem;
+}
+footer .pie1 .pie__titulo{
+    position: relative;
+    top: 10px;
+    color: var(--secondary);
+    padding: 1rem;
+}
+footer .pie__menu{
+    padding: 1rem 2rem;
+}
+.pie__menu .pie__lista .pie__link{
+    padding: 0.5rem;
+    font-size: 1.2em;
+}
+.pie__menu .pie__lista .pie__link:hover{
+    background-color: var(--secondary);
+    color: var(--principal);
+    border-radius: 4px;
+    transition: .5s ease-in-out;
+}
+
+footer .pie2{
+    flex-basis: 30%;
+    text-align: center;
+    padding: 0 2rem;
+}
+footer .pie2 .pie2__contacto{
+    font-size: 2em;
+    position: relative;
+    top: 10px;
+    color: var(--secondary);
+    padding: 1rem;
+}
+footer .pie2 .contacto__lista{
+    padding: 1rem;
+}
+footer .pie2 .contacto__lista .contacto__opciones{
+    padding: 1rem;
+}
+footer .pie2 .pie2__derechos{
+    position: relative;
+    top: 10px;
+    color: var(--third);
+}
+footer .pie3{
+    flex-basis: 30%;
+    text-align: center;
+    padding: 0 2rem;
+}
+footer .pie3 .pie3__siguenos{
+    font-size: 2em;
+    position: relative;
+    top: 10px;
+    color: var(--secondary);
+    padding: 1rem;
+}
+footer .pie3 .redes{
+    position: relative;
+    top: 20px;
+}
+
+/* INDEX */
+/* Main */
+
+main{
+    background-color: var(--principal);
+}
+
+main .contenido .contenido__titulo{
+    font-size: 6em;
+    text-align: center;
+    position: relative;
+    top: 170px;
+    right: 200px;
+}
+
+main .contenido .contenido__somos{
+    font-size: 2em;
+    text-align: center;
+    position: relative;
+    width: 590px;
+    top: 190px;
+    left: 50px;
+}
+main .contenido .imagen__home{
+    width: 100%;
+}
+
+/* Contacto */
+/* main */
+
+main .contacto{
+    padding: 1rem;
+    align-items: center;
+}
+main .contacto .contacto__datos{
+    padding: 1rem;
+    flex-basis: 40%;
+}
+
+.contenido__clientes{
+    text-align: center;
+}
+.grid__container{
+    display: grid;
+    grid-gap: 2rem;
+    grid-template-areas: "div div div";
+}
+.tarjeta__cliente{
+    height: 180px;
+    width: 300px;
+    padding: 1rem 2rem;
+    border: 1px solid black;
+}
+
+@media screen and (max-width: 720px) {
+    header{
+        padding: 2em,
+    }
+    main{
+        padding: 2em;
+    }
+    footer{
+        padding: 2em;
+    }
+    header .navegacion{
+        flex-direction: column;
+        justify-content: center;
+    }
+    main .principal{
+        flex-direction: column;
+        justify-content: center;
+    }
+    footer .pie{
+        flex-direction: column;
+        justify-content: center;
+    }
+    .grid__container{
+        flex-direction: column;
+        justify-content: center;
+    }
+}
+    

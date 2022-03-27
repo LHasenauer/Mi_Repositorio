@@ -28,13 +28,20 @@
 
 html{
     font-size: 62.5%;
-    font-family: var(--font-primary);
-    color: var(--secondary);
 }
 body{
+    background-color: white;
+    max-width: 1080px;
+    margin: 0 auto;
     display: grid;
-    grid-template-rows: auto 1fr auto;
-    min-height: 100vh;
+    grid-gap: 10px;
+    grid-template-columns: repeat(3 , auto);
+    grid-template-rows: repeat(3 , auto);
+    grid-template-areas: "header header header"
+                        "main main main"
+                        "footer footer footer";
+    font-family: var(--font-primary);
+    color: var(--secondary);
 
 }
 
@@ -57,15 +64,16 @@ a{
     display: flex;
     flex-direction: column;
 }
-.container{
+/* .container{
     max-width: 1080px;
     margin: 0 auto;
-}
+} */
 
 /* Header */
 
 header {
-    background-color: var(--principal);
+    grid-area: header;
+    background-color: white;
 }
 
 header .navegacion {
@@ -77,6 +85,7 @@ header .navegacion {
 }
 header .logo{
     flex-basis: 30%;
+    
 }
 
 header .menu {
@@ -118,15 +127,18 @@ header .submenu{
 /* footer */
 
 footer{
-    background-color: var(--principal);
+    grid-area: footer;
+    background-color: white;
 }
 footer .pie{
     display: grid;
-    grid-template-areas: "div div div";
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-areas: "pie1 pie2 pie3";
     max-width: 1080px;
     margin: 0 auto;
 }
 footer .pie1{
+    grid-area: pie1;
     flex-basis: 40%;
     text-align: center;
     padding: 0 2rem;
@@ -152,6 +164,7 @@ footer .pie__menu{
 }
 
 footer .pie2{
+    grid-area: pie2;
     flex-basis: 30%;
     text-align: center;
     padding: 0 2rem;
@@ -175,6 +188,7 @@ footer .pie2 .pie2__derechos{
     color: var(--third);
 }
 footer .pie3{
+    grid-area: pie3;
     flex-basis: 30%;
     text-align: center;
     padding: 0 2rem;
@@ -195,81 +209,76 @@ footer .pie3 .redes{
 /* Main */
 
 main{
-    background-color: var(--principal);
+    grid-area: main;
+    background-color: white;
 }
 
 main .contenido .contenido__titulo{
     font-size: 6em;
     text-align: center;
     position: relative;
-    top: 170px;
-    right: 200px;
+    width: 100%;
+    top: 17rem;
+    right: 10rem;
+    animation-duration: 5s;
+    animation-name: aparecer;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
 }
+@keyframes aparecer{
+    0%{
+        opacity: 0;
+    }
+    50%{
+        opacity: 1;
+    }
+    100%{
+        opacity: 2;
+    }
+}
+
 
 main .contenido .contenido__somos{
     font-size: 2em;
     text-align: center;
     position: relative;
-    width: 590px;
-    top: 190px;
-    left: 50px;
+    width: 50%;
+    top: 20rem;
+    right: 10rem;
+    animation-duration: 10s;
+    animation-name: desplazar;
+    animation-iteration-count: infinite;
 }
-main .contenido .imagen__home{
-    width: 100%;
+@keyframes desplazar{
+    from{
+        margin-left: -100%;
+        width: 200%;
+    }
+    to{
+        margin-left: 20%;
+        width: 50%;
+    }
 }
 
+.img{
+    width: 100%;
+    height: auto;
+}
 /* Contacto */
 /* main */
 
 main .contacto{
-    padding: 1rem;
-    align-items: center;
-}
-main .contacto .contacto__datos{
-    padding: 1rem;
-    flex-basis: 40%;
-}
-
-.contenido__clientes{
     text-align: center;
+    align-self: center;
+    padding: 2rem;
 }
-.grid__container{
-    display: grid;
-    grid-gap: 2rem;
-    grid-template-areas: "div div div";
+main .contacto .mapa{
+    padding: 2rem;
 }
-.tarjeta__cliente{
-    height: 180px;
-    width: 300px;
-    padding: 1rem 2rem;
-    border: 1px solid black;
+main .formulario{
+    text-align: center;
+    align-self: center;
+    padding: 2rem;
 }
 
-@media screen and (max-width: 720px) {
-    header{
-        padding: 2em,
-    }
-    main{
-        padding: 2em;
-    }
-    footer{
-        padding: 2em;
-    }
-    header .navegacion{
-        flex-direction: column;
-        justify-content: center;
-    }
-    main .principal{
-        flex-direction: column;
-        justify-content: center;
-    }
-    footer .pie{
-        flex-direction: column;
-        justify-content: center;
-    }
-    .grid__container{
-        flex-direction: column;
-        justify-content: center;
-    }
-}
-    
+
